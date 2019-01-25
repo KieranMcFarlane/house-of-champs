@@ -1,0 +1,104 @@
+// html {
+//     margin-top: 0px !important;
+// }
+
+// .spacer{
+//     height: 36px;
+//     width: 100%;
+//     background-color: white;
+// }
+
+.hero-unit__outer-container{
+    height: 80vh;
+    min-height: 500px;
+    background-size: cover;
+    background-position: center center;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+// Hero
+
+.hero{
+
+    &__content__box{
+        max-width: 582px;
+        background-color: rgba(255, 255, 255, 0.9);
+        padding-top: 28px;
+        padding-left: 38px;
+        padding-right: 33px;
+        padding-bottom: 40px;
+        margin-left: 50px;
+    
+        h1{
+            font-family: $montserrat-font;
+            font-weight: $light;
+        }
+    
+        p{
+            padding-bottom: 10px;
+            font-family: $crimsom-font;
+            font-size: 24px;
+        } 
+    }
+
+    &__scroll{
+        position: absolute;
+        font-size: 12px;
+        font-weight: 600;
+        font-family: $montserrat-font;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        bottom: -16px;
+        right: 50px;
+        cursor: pointer;
+        display: inline-block;
+        &:after{
+            content: "";
+            position: absolute;
+            width: 14px;
+            height: 8px;
+            right: -22px;
+            top: 5px;
+            background-image: url(../images/arrow-down.png);
+            background-size: contain;
+        }
+    }
+
+}
+
+#wrapper-footer{
+    display: none;
+}
+
+ul#main-menu li a {
+    color: $secondary;
+}
+
+#wrapper-navbar{
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 9999;
+}
+
+html {
+    margin-top: 6px !important;
+}
+
+#wpadminbar{
+    transform: translateY(-26px);
+    transition: all ease-in-out 0.4s;
+    cursor: pointer !important;
+    &:hover{
+        transform: translateY(0px);
+    }
+}
+
+.button{
+    background-color: $secondary;
+    padding: 16px 30px 16px 30px;
+    color: white;
+    display: inline-block;
+}
