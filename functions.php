@@ -20,7 +20,12 @@ function theme_enqueue_styles() {
 	// Get the theme data
 	$the_theme = wp_get_theme();
     wp_enqueue_style( 'child-understrap-styles', get_stylesheet_directory_uri() . '/css/child-theme.min.css', array(), $the_theme->get( 'Version' ) );
-    wp_enqueue_style('googlefonts-wp', 'https://fonts.googleapis.com/css?family=Crimson+Text|Montserrat');
+    wp_enqueue_style('googlefonts-wp', 'https://fonts.googleapis.com/css?family=Source+Sans+Pro');
+    wp_enqueue_style('aos-css', 'https://unpkg.com/aos@2.3.1/dist/aos.css');
+    wp_enqueue_script( 'aos-js', 'https://unpkg.com/aos@2.3.1/dist/aos.js');
+    wp_enqueue_style( 'animate-css', 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css');
+
+    wp_enqueue_script( 'fame-scripts', get_stylesheet_directory_uri() . '/js/custom-javascript.js', true);
     wp_enqueue_script( 'jquery');
     wp_enqueue_script( 'child-understrap-scripts', get_stylesheet_directory_uri() . '/js/child-theme.min.js', array(), $the_theme->get( 'Version' ), true );
     if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {

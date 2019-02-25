@@ -10,35 +10,26 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 ?>
 
-<article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
-
-	<header class="entry-header">
-
-		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-
-	</header><!-- .entry-header -->
-
-	<?php echo get_the_post_thumbnail( $post->ID, 'large' ); ?>
-
-	<div class="entry-content">
-
-		<?php the_content(); ?>
-
-		<?php
-		wp_link_pages(
-			array(
-				'before' => '<div class="page-links">' . __( 'Pages:', 'understrap' ),
-				'after'  => '</div>',
-			)
-		);
-		?>
-
-	</div><!-- .entry-content -->
-
-	<footer class="entry-footer">
-
-		<?php edit_post_link( __( 'Edit', 'understrap' ), '<span class="edit-link">', '</span>' ); ?>
-
-	</footer><!-- .entry-footer -->
-
-</article><!-- #post-## -->
+  <?php if(have_rows('flexible_content')): ?>
+    <?php $counter = 0; ?>
+    <?php while (have_rows('flexible_content')): the_row(); ?>
+      <?php if ( 'page_blocks' === get_row_layout() ): ?>
+        <div id="flex-<?php echo $counter ?>" class="flex-<?php echo $counter ?>">
+          <?php get_template_part('global-templates/flexible', 'page-blocks'); ?>
+        </div>
+      <?php elseif ( 'side_to_side_content' === get_row_layout() ): ?>
+        <div id="flex-<?php echo $counter ?>" data-aos="fade-up" class="flex-<?php echo $counter ?> fade__block__container">
+          <?php get_template_part('global-templates/flexible', 'side-to-side-content'); ?>
+        </div>
+        <?php elseif ( 'tab_services' === get_row_layout() ): ?>
+        <div id="flex-<?php echo $counter ?>" class="flex-<?php echo $counter ?>">
+          <?php get_template_part('global-templates/flexible', 'tab-services'); ?>
+        </div>
+		<?php elseif ( 'title_block' === get_row_layout() ): ?>
+		<div id="flex-<?php echo $counter ?>" class="flex-<?php echo $counter ?>">
+		<?php get_template_part('global-templates/flexible', 'title-block'); ?>
+		</div>
+        <?php endif; ?>
+        <?php $counter++; ?>
+      <?php endwhile; ?>
+    <?php endif; ?>
